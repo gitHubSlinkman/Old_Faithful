@@ -1,0 +1,58 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+This R notebook explores the development and validation of a simple linear regression model.  We use the eruption data for the Old Faithful geyser that is located in Yellowstone national park
+Our goal to develop a simple linear regression model that predicts the time to the next eruption, that is the interval by the length of previous eruption.  We will check the model requirements to ensure that the assumptions of the simple linear model are satisfied.  We will the estimated the mean square prediction error usi,ng a holdout data set, and then compare prediction performance.
+
+The data we will use is located in the package **alr4**.  You will need to install it if you have not previously installed it.
+
+The R documentation for this data set is given below: **oldfaith** Old Faithful Geyser data:  
+
+## Description 
+
+Data on eruptions of Old Faithful Geyser, October 1980. Variables are the duration in seconds of the current eruption, and the time in minutes to the next eruption. Collected by volunteers, and supplied by the Yellowstone National Park Geologist. Data was not collected between approximately midnight and 6 AM.
+
+### Format
+
+### This data frame contains the following columns:
+
+1. Duration Duration in seconds
+2. Interval Time to next eruption
+
+### Source
+  R. Hutchinson
+  
+### References
+Weisberg, S. (2014). Applied Linear Regression, 4th edition. Hoboken NJ: Wiley.
+
+### Example
+head(oldfaith) 
+
+
+## Preperation
+
+
+```{r}
+require(tidyverse)                     # I live in the tidyverse.
+require(cowplot)                       # I prefer the cowplot graphics theme.
+require(alr4)                          # Load package containing data.
+
+oldfaith                               # Verfy data file.
+```
+
+Note that the Duration is measured in seconds and he interval is measured in minutes. 
+
+## Plotting the entire sample
+
+In any applied statistical activity the first the first thing we should do is to plot the
+data.  In simple linear regression analysis primary plot that we should use scatterplot. We use this plot to assess if a linear model is reasonable. 
+
+We use **ggplot2 ** package (which is load by tidyverse package).
+
+```{r}
+
+
+  
+```
+
