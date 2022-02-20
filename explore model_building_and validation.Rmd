@@ -38,7 +38,7 @@ require(tidyverse)                     # I live in the tidyverse.
 require(cowplot)                       # I prefer the cowplot graphics theme.
 require(alr4)                          # Load package containing data.
 
-oldfaith                               # Verfy data file.
+oldfaith                               # Verify data file.
 ```
 
 Note that the Duration is measured in seconds and he interval is measured in minutes. 
@@ -52,7 +52,35 @@ We use **ggplot2 ** package (which is load by tidyverse package).
 
 ```{r}
 
+ggplot( oldfaith,
+        aes( x = Duration,
+             y = Interval )) +
+  geom_point() +
+  xlab( "Duration of prior erunption(Seconds)" ) +
+  ylab( "Interval to next eruption(Minutes)" ) +
+  ggtitle( "Eruption interval versus duration of last eruption" ) +
+  theme_cowplot()
 
-  
+
+
 ```
+
+Note that there appear to two clusters in this data.  It is useful to draw density histograms with density plots for the predictor and response variable.  
+
+I have written an R function to do this.  On my computer this is found in my Source directory.  We import this function bi using the source statement.  You can find this at 
+my Github project **Rsource** at **gitHubSlinkman/Rsource**.  We import this function with the R **source** statement.
+
+We then draw the density histogram with a smooth density estimator line using my R function **plot_distribution** function.
+
+
+```{r}
+source('D:/R-Projects/Rsource/plot_distribution.R')  # Import function
+
+plot_distribution( oldfaith$Duration,
+                   "Duration of eruption(Seconds)",
+                   "Duration of eruption(Seconds)" )
+```
+
+It appears that the population is divided into two sub-populations. The reason for this is not obvious from the data.
+
 
